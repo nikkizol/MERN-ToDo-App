@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function CreateTodo() {
   const [todo_description, setTodo_description] = useState("");
@@ -25,6 +26,17 @@ export default function CreateTodo() {
     console.log(`Todo Description: ${todo_description}`);
     console.log(`Todo Responsible: ${todo_responsible}`);
     console.log(`Todo Priority: ${todo_priority}`);
+
+    const newTodo = {
+      todo_description: todo_description,
+      todo_responsible: todo_responsible,
+      todo_priority: todo_priority,
+      todo_completed: todo_completed,
+    };
+
+    axios
+      .post("http://localhost:4000/todo/add", newTodo)
+      .then((res) => console.log(res.data));
 
     setTodo_description("");
     setTodo_responsible("");
