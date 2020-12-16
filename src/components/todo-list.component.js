@@ -28,9 +28,15 @@ export default function TodosList() {
 
   const Todo = (props) => (
     <tr>
-      <td>{props.todo.todo_description}</td>
-      <td>{props.todo.todo_responsible}</td>
-      <td>{props.todo.todo_priority}</td>
+      <td className={props.todo.todo_completed ? "completed" : ""}>
+        {props.todo.todo_description}
+      </td>
+      <td className={props.todo.todo_completed ? "completed" : ""}>
+        {props.todo.todo_responsible}
+      </td>
+      <td className={props.todo.todo_completed ? "completed" : ""}>
+        {props.todo.todo_priority}
+      </td>
       <td>
         <Link to={"/edit/" + props.todo._id}>Edit</Link>
       </td>
