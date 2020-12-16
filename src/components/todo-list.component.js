@@ -1,7 +1,7 @@
 export default function TodosList() {
   return (
     <div>
-      <p>Welcome to Todos List Component!!</p>
+      <p>Welcome to Todo List Component!!</p>
     </div>
   );
 }
