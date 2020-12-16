@@ -9,11 +9,6 @@ export default function NavBarr() {
     <Router>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a
-            className="navbar-brand"
-            href="https://codingthesmartway.com"
-            target="_blank"
-          ></a>
           <Link to="/" className="navbar-brand">
             MERN Todo App
           </Link>
