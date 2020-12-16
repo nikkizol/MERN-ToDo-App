@@ -9,7 +9,7 @@ export default function EditTodo(props) {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchData = async () => {
     const result = await axios.get(
