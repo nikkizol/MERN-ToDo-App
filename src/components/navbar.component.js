@@ -10,7 +10,7 @@ export default function NavBarr() {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <a
-            class="navbar-brand"
+            className="navbar-brand"
             href="https://codingthesmartway.com"
             target="_blank"
           ></a>
