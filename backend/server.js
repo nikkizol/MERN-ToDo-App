@@ -54,6 +54,18 @@ todoRoutes.route("/update/:id").post(function (req, res) {
   });
 });
 
+todoRoutes.route("/:id").delete((req, res, next) => {
+  Todo.findByIdAndRemove(req.params.id, (error, data) => {
+    if (error) {
+      return next(error);
+    } else {
+      res.status(200).json({
+        msg: "ToDo deleted success",
+      });
+    }
+  });
+});
+
 todoRoutes.route("/add").post(function (req, res) {
   let todo = new Todo(req.body);
   todo

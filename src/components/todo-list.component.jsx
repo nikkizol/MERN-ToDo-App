@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function TodosList() {
+export default function TodosList(props) {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
@@ -10,9 +10,14 @@ export default function TodosList() {
   }, []);
 
   const fetchData = async () => {
-    const result = await axios.get("http://localhost:4000/todo/");
-    console.log(result.data);
-    setTodo(result.data);
+    await axios
+      .get("http://localhost:4000/todo/")
+      .then((result) => {
+        setTodo(result.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   // useEffect(() => {
@@ -25,6 +30,18 @@ export default function TodosList() {
   //       console.log(error);
   //     });
   // }, []);
+
+  const DeleteStudent = async (value) => {
+    await axios
+      .delete("http://localhost:4000/todo/" + value)
+      .then((result) => {
+        console.log("Todo successfully deleted!");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    window.location.assign("/");
+  };
 
   const Todo = (props) => (
     <tr>
@@ -39,6 +56,15 @@ export default function TodosList() {
       </td>
       <td>
         <Link to={"/edit/" + props.todo._id}>Edit</Link>
+      </td>
+      <td>
+        <button
+          onClick={() => DeleteStudent(props.todo._id)}
+          size="sm"
+          variant="danger"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );
