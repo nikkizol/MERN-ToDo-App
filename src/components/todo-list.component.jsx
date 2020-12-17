@@ -48,8 +48,8 @@ export default function TodosList(props) {
       <td>
         <button
           onClick={() => DeleteStudent(props.todo._id)}
-          size="sm"
-          variant="danger"
+          type="button"
+          className="btn btn-danger"
         >
           Delete
         </button>
@@ -73,6 +73,7 @@ export default function TodosList(props) {
             <th>Responsible</th>
             <th>Priority</th>
             <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{TodoList()}</tbody>
