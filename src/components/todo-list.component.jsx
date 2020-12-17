@@ -8,7 +8,6 @@ export default function TodosList(props) {
   useEffect(() => {
     fetchData();
   }, []);
-
   const fetchData = async () => {
     await axios
       .get("http://localhost:4000/todo/")
@@ -19,17 +18,6 @@ export default function TodosList(props) {
         console.log(error);
       });
   };
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4000/todo/")
-  //     .then((response) => {
-  //       setTodo(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
 
   const DeleteStudent = async (value) => {
     await axios
